@@ -36,6 +36,9 @@ public class IntLinkedList {
 	public boolean isFull() {
 		return false;
 	}
+	// TODO: needs refactoring - always returns same value
+
+
 	/**
 	 * Metoda sprawdzająca wartość ostatniego elementu listy
 	 * @return -1, gdy lista jest pusta
