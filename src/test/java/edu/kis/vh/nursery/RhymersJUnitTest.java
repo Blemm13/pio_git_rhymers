@@ -8,10 +8,10 @@ public class RhymersJUnitTest {
 	@Test
 	public void testCountIn() {
 		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		int testValue = 4;
-		rhymer.countIn(testValue);
-
+		final int testValue = 4;
 		int result = rhymer.peekaboo();
+
+		rhymer.countIn(testValue);
 		Assert.assertEquals(testValue, result);
 	}
 
