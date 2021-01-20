@@ -1,7 +1,6 @@
 package edu.kis.vh.nursery.factory;
 
 import edu.kis.vh.nursery.DefaultCountingOutRhymer;
-import edu.kis.vh.nursery.FIFORhymer;
 import edu.kis.vh.nursery.HanoiRhymer;
 
 public class DefaultRhymersFactory implements RhymersFactory {
@@ -26,4 +25,24 @@ public class DefaultRhymersFactory implements RhymersFactory {
         return new HanoiRhymer();
     }
 
+}
+
+class FIFORhymer extends DefaultCountingOutRhymer {
+
+    public final DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
+
+    @Override
+    public int countOut() {
+        final int ret = temp.countOut();
+
+        while (!callCheck()) {
+            temp.countIn(super.countOut());
+        }
+
+        while (!temp.callCheck())
+            countIn(temp.countOut());
+
+
+        return ret;
+    }
 }
