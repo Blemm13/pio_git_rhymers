@@ -6,32 +6,36 @@ public class DefaultCountingOutRhymer {
     private final int[] numbers = new int[DEFAULT_SIZE];
     private final int INITIAL = -1;
     private final int EMPTY = -1;
+    private IntArrayStack arrayStack;
 
     public int total = INITIAL;
 
+    public DefaultCountingOutRhymer(){
+        this.arrayStack = new IntArrayStack();
+    }
+
     public void countIn(int in) {
-        if (!isFull())
-            numbers[++total] = in;
+        arrayStack.countIn(in);
     }
 
     public boolean callCheck() {
-        return total == INITIAL;
+        return arrayStack.callCheck();
     }
 
     public boolean isFull() {
-        return total == DEFAULT_SIZE-1;
+        return arrayStack.isFull();
     }
 
     protected int peekaboo() {
-        if (callCheck())
-            return -1;
-        return numbers[total];
+        return arrayStack.peekaboo();
     }
 
     public int countOut() {
-        if (callCheck())
-            return EMPTY;
-        return numbers[total--];
+        return arrayStack.countOut();
+    }
+
+    public int getTotal(){
+        return arrayStack.getTotal();
     }
 
 }
