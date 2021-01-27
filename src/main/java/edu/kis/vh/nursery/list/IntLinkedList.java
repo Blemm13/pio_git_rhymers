@@ -4,7 +4,7 @@ package edu.kis.vh.nursery.list;
  * Klasa tworząca objekt Linked List
  */
 public class IntLinkedList {
-
+	private final int EMPTY = -1;
 	Node last;
 	int i;
 	/**
@@ -46,7 +46,7 @@ public class IntLinkedList {
 	 */
 	public int top() {
 		if (isEmpty())
-			return -1;
+			return EMPTY;
 		return last.value;
 	}
 	/**
@@ -56,7 +56,7 @@ public class IntLinkedList {
 	 */
 	public int pop() {
 		if (isEmpty())
-			return -1;
+			return EMPTY;
 		int ret = last.value;
 		last = last.prev;
 		return ret;
