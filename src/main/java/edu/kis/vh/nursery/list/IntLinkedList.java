@@ -7,14 +7,22 @@ public class IntLinkedList {
 	private final int EMPTY = -1;
 	Node last;
 	int i;
+
+	public int getSizeOfList() {
+		return sizeOfList;
+	}
+
 	/**
 	 * @param i liczba, która zostanie dodana na koniec listy
 	 *
 	 */
+	private int sizeOfList=0;
+
 	public void push(int i) {
 		if (last == null)
 			last = new Node(i);
 		else {
+			sizeOfList++;
 			last.next = new Node(i);
 			last.next.prev = last;
 			last = last.next;
@@ -59,6 +67,7 @@ public class IntLinkedList {
 			return EMPTY;
 		int ret = last.value;
 		last = last.prev;
+		sizeOfList--;
 		return ret;
 	}
 
