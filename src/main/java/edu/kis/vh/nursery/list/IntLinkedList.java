@@ -5,13 +5,14 @@ package edu.kis.vh.nursery.list;
  */
 public class IntLinkedList {
 	private final int EMPTY = -1;
+	private int size=0;
 	Node last;
-	int i;
-	/**
-	 * @param i liczba, która zostanie dodana na koniec listy
-	 *
-	 */
+
+	public IntLinkedList() {
+	}
+
 	public void push(int i) {
+		size++;
 		if (last == null)
 			last = new Node(i);
 		else {
@@ -20,6 +21,7 @@ public class IntLinkedList {
 			last = last.next;
 		}
 	}
+
 	/**
 	 * Metoda sprawdzająca czy lista jest pusta
 	 * @return true, gdy lista jest pusta
@@ -55,6 +57,7 @@ public class IntLinkedList {
 	 * @return ret, zwraca usuniętą wartość
 	 */
 	public int pop() {
+		size--;
 		if (isEmpty())
 			return EMPTY;
 		int ret = last.value;
@@ -62,4 +65,7 @@ public class IntLinkedList {
 		return ret;
 	}
 
+	public int getSize() {
+		return size;
+	}
 }
