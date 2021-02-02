@@ -56,3 +56,15 @@ class FIFORhymer extends DefaultCountingOutRhymer {
         return ret;
     }
 }
+/*
+* Pytanie: Jaki wybór będzie najlepszy (napisz komentarz)?
+*
+* Wybieram IntArrayStack, ponieważ pozwala on na nieco łatwiejsze dodawanie danych
+* pod względem wydajności. Struktura IntLinkedList pozwala na dostęp do każdego pola, niezależnie od pozycji, co nie jest poszukiwaną
+* cechą dla tego typu programu. Interesuje nas w tym przypadku najprosza możliwa implementacja struktury LIFO.
+*
+* Stack również posiada prostszą implementację, ponieważ może funkcjonować bez klasy Node.
+*
+* Zakładając, że nie zakładamy edytowania pól, które wrzucamy do listy rozsądniejszym wyborem
+* z mojej perspektywy zawsze będzie IntArrayStack.
+* */
