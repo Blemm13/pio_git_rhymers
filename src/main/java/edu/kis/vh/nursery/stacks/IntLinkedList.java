@@ -1,11 +1,11 @@
-package edu.kis.vh.nursery.list;
+package edu.kis.vh.nursery.stacks;
 
 /**
  * Klasa tworząca objekt Linked List
  */
 public class IntLinkedList implements ExtractInterface {
-	private final int EMPTY = -1;
-	private int size=0;
+
+	private int size = EMPTY;
 	Node last;
 
 	public IntLinkedList() {
@@ -52,7 +52,7 @@ public class IntLinkedList implements ExtractInterface {
 	@Override
 	public int top() {
 		if (isEmpty())
-			return EMPTY;
+			return INITIAL;
 		return last.value;
 	}
 	/**
@@ -64,7 +64,7 @@ public class IntLinkedList implements ExtractInterface {
 	public int pop() {
 		size--;
 		if (isEmpty())
-			return EMPTY;
+			return INITIAL;
 		int ret = last.value;
 		last = last.prev;
 		return ret;

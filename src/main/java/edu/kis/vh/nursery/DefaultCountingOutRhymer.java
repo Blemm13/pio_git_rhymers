@@ -1,7 +1,7 @@
 package edu.kis.vh.nursery;
 
-import edu.kis.vh.nursery.list.ExtractInterface;
-import edu.kis.vh.nursery.list.IntLinkedList;
+import edu.kis.vh.nursery.stacks.ExtractInterface;
+import edu.kis.vh.nursery.stacks.IntArrayStack;
 
 public class DefaultCountingOutRhymer {
 
@@ -9,6 +9,10 @@ public class DefaultCountingOutRhymer {
 
 
     public DefaultCountingOutRhymer(){
+    }
+
+    public DefaultCountingOutRhymer(ExtractInterface list) {
+        this.list = list;
     }
 
     public void countIn(int in) {

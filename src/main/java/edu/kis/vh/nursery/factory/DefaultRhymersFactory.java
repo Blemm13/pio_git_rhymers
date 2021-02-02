@@ -2,6 +2,8 @@ package edu.kis.vh.nursery.factory;
 
 import edu.kis.vh.nursery.DefaultCountingOutRhymer;
 import edu.kis.vh.nursery.HanoiRhymer;
+import edu.kis.vh.nursery.stacks.ExtractInterface;
+import edu.kis.vh.nursery.stacks.IntArrayStack;
 
 public class DefaultRhymersFactory implements RhymersFactory {
 
@@ -29,7 +31,15 @@ public class DefaultRhymersFactory implements RhymersFactory {
 
 class FIFORhymer extends DefaultCountingOutRhymer {
 
-    public final DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
+    public FIFORhymer() {
+    }
+
+    public FIFORhymer(ExtractInterface list) {
+        super(list);
+    }
+
+    public final IntArrayStack temp = new IntArrayStack();
+
 
     @Override
     public int countOut() {

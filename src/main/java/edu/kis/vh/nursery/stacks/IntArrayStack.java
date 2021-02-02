@@ -1,13 +1,9 @@
-package edu.kis.vh.nursery;
-
-import edu.kis.vh.nursery.list.ExtractInterface;
+package edu.kis.vh.nursery.stacks;
 
 public class IntArrayStack implements ExtractInterface {
 
     private final int DEFAULT_SIZE = 12;
     private final int[] numbers = new int[DEFAULT_SIZE];
-    private final int INITIAL = -1;
-    private final int EMPTY = -1;
 
     public int getTotal() {
         return total;
@@ -53,9 +49,9 @@ public class IntArrayStack implements ExtractInterface {
         return 0;
     }
 
-    protected int peekaboo() {
+    public int peekaboo() {
         if (callCheck())
-            return -1;
+            return EMPTY;
         return numbers[total];
     }
 

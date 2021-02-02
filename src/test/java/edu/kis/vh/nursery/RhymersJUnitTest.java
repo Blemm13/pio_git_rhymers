@@ -1,5 +1,6 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.stacks.IntArrayStack;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testCallCheck() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+		IntArrayStack rhymer = new IntArrayStack();
 		boolean result = rhymer.callCheck();
 		Assert.assertTrue(result);
 
@@ -46,8 +47,8 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testPeekaboo() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		IntArrayStack rhymer = new IntArrayStack();
+		final int EMPTY_STACK_VALUE = 0;
 
 		int result = rhymer.peekaboo();
 		assertEquals(EMPTY_STACK_VALUE, result);
@@ -63,8 +64,8 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testCountOut() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		IntArrayStack rhymer = new IntArrayStack();
+		final int EMPTY_STACK_VALUE = 0;
 
 		int result = rhymer.countOut();
 		assertEquals(EMPTY_STACK_VALUE, result);
