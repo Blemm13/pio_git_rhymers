@@ -13,7 +13,8 @@ public class ListFactory implements RhymersFactory{
 
     @Override
     public DefaultCountingOutRhymer getFalseRhymer() {
-        return new DefaultCountingOutRhymer(new IntArrayStack());
+        return new DefaultCountingOutRhymer(/*new IntArrayStack()*/);
+        //Uważam, że deklarowanie DefaultCountingOutRhymer z obiektem stack łamie zasade izolacji w klasie ListFactory
     }
 
     @Override

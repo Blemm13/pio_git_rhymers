@@ -13,7 +13,9 @@ public class StackFactory implements RhymersFactory{
 
     @Override
     public DefaultCountingOutRhymer getFalseRhymer() {
-        return new DefaultCountingOutRhymer(new IntLinkedList());
+        return new DefaultCountingOutRhymer(/*new IntLinkedList()*/);
+        //Uważam, że deklarowanie DefaultCountingOutRhymer z obiektem linked list łamie zasade izolacji w klasie StackFactory
+
     }
 
     @Override
