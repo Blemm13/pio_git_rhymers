@@ -1,6 +1,8 @@
 package edu.kis.vh.nursery;
 
-public class IntArrayStack {
+import edu.kis.vh.nursery.list.ExtractInterface;
+
+public class IntArrayStack implements ExtractInterface {
 
     private final int DEFAULT_SIZE = 12;
     private final int[] numbers = new int[DEFAULT_SIZE];
@@ -22,8 +24,33 @@ public class IntArrayStack {
         return total == INITIAL;
     }
 
+    @Override
+    public void push(int i) {
+
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
     public boolean isFull() {
         return total == DEFAULT_SIZE-1;
+    }
+
+    @Override
+    public int top() {
+        return 0;
+    }
+
+    @Override
+    public int pop() {
+        return 0;
+    }
+
+    @Override
+    public int getSize() {
+        return 0;
     }
 
     protected int peekaboo() {
