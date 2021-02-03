@@ -1,30 +1,70 @@
 package edu.kis.vh.nursery.factory;
 
-import edu.kis.vh.nursery.defaultCountingOutRhymer;
-import edu.kis.vh.nursery.FIFORhymer;
+import edu.kis.vh.nursery.DefaultCountingOutRhymer;
 import edu.kis.vh.nursery.HanoiRhymer;
-import edu.kis.vh.nursery.factory.Rhymersfactory;
+import edu.kis.vh.nursery.stacks.ExtractInterface;
+import edu.kis.vh.nursery.stacks.IntArrayStack;
 
-public class DefaultRhymersFactory implements Rhymersfactory {
+public class DefaultRhymersFactory implements RhymersFactory {
 
-	@Override
-	public defaultCountingOutRhymer GetStandardRhymer() {
-		return new defaultCountingOutRhymer();
-	}
+    @Override
+    public DefaultCountingOutRhymer getStandardRhymer() {
+        return new DefaultCountingOutRhymer();
+    }
 
-	@Override
-	public defaultCountingOutRhymer GetFalseRhymer() {
-		return new defaultCountingOutRhymer();
-	}
+    @Override
+    public DefaultCountingOutRhymer getFalseRhymer() {
+        return new DefaultCountingOutRhymer();
+    }
 
-	@Override
-	public defaultCountingOutRhymer GetFIFORhymer() {
-		return new FIFORhymer();
-	}
+    @Override
+    public DefaultCountingOutRhymer getFIFORhymer() {
+        return new FIFORhymer();
+    }
 
-	@Override
-	public defaultCountingOutRhymer GetHanoiRhymer() {
-		return new HanoiRhymer();
-	}
+    @Override
+    public DefaultCountingOutRhymer getHanoiRhymer() {
+        return new HanoiRhymer();
+    }
 
 }
+
+class FIFORhymer extends DefaultCountingOutRhymer {
+
+    public FIFORhymer() {
+    }
+
+    public FIFORhymer(ExtractInterface list) {
+        super(list);
+    }
+
+    public final IntArrayStack temp = new IntArrayStack();
+
+
+    @Override
+    public int countOut() {
+        final int ret = temp.countOut();
+
+        while (!callCheck()) {
+            temp.countIn(super.countOut());
+        }
+
+        while (!temp.callCheck())
+            countIn(temp.countOut());
+
+
+        return ret;
+    }
+}
+/*
+* Pytanie: Jaki wybór będzie najlepszy (napisz komentarz)?
+*
+* Wybieram IntArrayStack, ponieważ pozwala on na nieco łatwiejsze dodawanie danych
+* pod względem wydajności. Struktura IntLinkedList pozwala na dostęp do każdego pola, niezależnie od pozycji, co nie jest poszukiwaną
+* cechą dla tego typu programu. Interesuje nas w tym przypadku najprosza możliwa implementacja struktury LIFO.
+*
+* Stack również posiada prostszą implementację, ponieważ może funkcjonować bez klasy Node.
+*
+* Zakładając, że nie zakładamy edytowania pól, które wrzucamy do listy rozsądniejszym wyborem
+* z mojej perspektywy zawsze będzie IntArrayStack.
+* */

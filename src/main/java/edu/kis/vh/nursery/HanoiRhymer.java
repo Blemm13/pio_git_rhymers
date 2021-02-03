@@ -1,17 +1,30 @@
 package edu.kis.vh.nursery;
 
-public class HanoiRhymer extends defaultCountingOutRhymer {
+import edu.kis.vh.nursery.stacks.ExtractInterface;
 
-int totalRejected = 0;
+public class HanoiRhymer extends DefaultCountingOutRhymer {
 
-	public int reportRejected() {
-		return totalRejected;
-	}
+    private final int RJ_INIT = 0;
+    int totalRejected = RJ_INIT;
 
-	public void countIn(int in) {
-	if (!callCheck() && in > peekaboo())
-			totalRejected++;
-			else
-				super.countIn(in);
-	}
+    public HanoiRhymer() {
+    }
+
+    public HanoiRhymer(ExtractInterface list) {
+        super(list);
+    }
+
+    public int reportRejected() {
+        return totalRejected;
+    }
+
+    @Override
+    public void countIn(int in) {
+        if (!callCheck() && in > peekaboo())
+            totalRejected++;
+        else
+            super.countIn(in);
+    }
 }
+
+//alt + strzałka pozwala szybko przełączać się między plikami
