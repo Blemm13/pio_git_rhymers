@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.factory.DefaultRhymersFactory;
+import edu.kis.vh.nursery.factory.RhymersFactory;
 import edu.kis.vh.nursery.stacks.IntArrayStack;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,6 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class RhymersJUnitTest {
+
 
 	@Test
 	public void testCountIn() {
@@ -42,7 +45,7 @@ public class RhymersJUnitTest {
 		}
 
 		boolean result = rhymer.isFull();
-		Assert.assertFalse(result);
+		Assert.assertTrue(result);
 	}
 
 	@Test

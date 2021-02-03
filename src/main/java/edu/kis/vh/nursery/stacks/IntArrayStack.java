@@ -22,12 +22,12 @@ public class IntArrayStack implements ExtractInterface {
 
     @Override
     public void push(int i) {
-
+        countIn(i);
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return callCheck();
     }
 
     public boolean isFull() {
@@ -36,17 +36,17 @@ public class IntArrayStack implements ExtractInterface {
 
     @Override
     public int top() {
-        return 0;
+        return peekaboo();
     }
 
     @Override
     public int pop() {
-        return 0;
+        return countOut();
     }
 
     @Override
     public int getSize() {
-        return 0;
+        return getTotal();
     }
 
     public int peekaboo() {
